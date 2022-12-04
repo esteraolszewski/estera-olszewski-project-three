@@ -16,15 +16,13 @@ function App() {
       headers: {'X-Api-Key': "iLcxEQg2WENDgCYYq1OUkg==9M625XLT481hht8L"},
       params: {
         muscle: userInput,
-        name: "",
-        difficulty: "",
-        offset: 1
+        // name: "",
+        // difficulty: "",
+        // offset: 1
       }
     }).then((res) => {
       console.log(res);
-      console.log("working");
       setExercises(res.data);
-      
     })
   }, [userInput])
 
@@ -38,10 +36,10 @@ function App() {
   return (
     <div className="App">
       <header>
-        <h1>WORKOUT</h1>
+        <h1>Workout What?</h1>
       </header>
       <form>
-      <label htmlFor="muscle">Choose a muscle:</label>
+      <label htmlFor="muscle">Choose a muscle group:</label>
 
         <select 
           name="muscle" 
@@ -58,7 +56,7 @@ function App() {
             <option value="quadriceps">Quadriceps</option>
             
         </select>
-        <button type="submit">Find me an exercise!</button>
+        {/* <button type="submit">Find me an exercise!</button> */}
       </form>
       < Display exercises={exercises}/>
     </div>
