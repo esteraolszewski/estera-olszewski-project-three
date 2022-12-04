@@ -1,7 +1,7 @@
 import './App.css';
 import axios from 'axios';
 import {useEffect, useState} from 'react';
-import Display from './Display.js';
+import Display from './Display';
 
 function App() {
 
@@ -23,7 +23,8 @@ function App() {
     }).then((res) => {
       console.log(res);
       console.log("working");
-      setExercises(res.data.Object);
+      setExercises(res.data);
+      
     })
   }, [userInput])
 
@@ -33,24 +34,33 @@ function App() {
     setUserInput(e.target.value);
   }
 
+
   return (
     <div className="App">
       <header>
         <h1>WORKOUT</h1>
       </header>
-      <form action="">
+      <form>
       <label htmlFor="muscle">Choose a muscle:</label>
 
-        <select name="muscle" id="muscle" onChange={handleChange}>
-            <option value="">--Please choose an option--</option>
+        <select 
+          name="muscle" 
+          id="muscle" 
+          onChange={handleChange}
+          >
+            <option value="" disabled>--Please choose an option--</option>
+            <option value="abdominals">Abdominals</option>
             <option value="biceps">Biceps</option>
+            <option value="calves">Calves</option>
+            <option value="chest">Chest</option>
             <option value="glutes">Glutes</option>
-            {/* <option value="hamster">Hamster</option>
-            <option value="parrot">Parrot</option>
-            <option value="spider">Spider</option>
-            <option value="goldfish">Goldfish</option> */}
+            <option value="hamstrings">Hamstrings</option>
+            <option value="quadriceps">Quadriceps</option>
+            
         </select>
+        <button type="submit">Find me an exercise!</button>
       </form>
+      < Display exercises={exercises}/>
     </div>
   );
 }
