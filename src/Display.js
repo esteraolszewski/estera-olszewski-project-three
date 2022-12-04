@@ -16,7 +16,7 @@ function Display({exercises}) {
         }
 
 
-    },[exercises])
+    },[exercises, randomNum])
 
     return (
         exercises
