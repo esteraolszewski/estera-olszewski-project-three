@@ -2,6 +2,7 @@ import './App.css';
 import axios from 'axios';
 import {useEffect, useState} from 'react';
 import Display from './Display';
+import MovingText from 'react-moving-text';
 
 function App() {
 
@@ -16,9 +17,6 @@ function App() {
       headers: {'X-Api-Key': "iLcxEQg2WENDgCYYq1OUkg==9M625XLT481hht8L"},
       params: {
         muscle: userInput,
-        // name: "",
-        // difficulty: "",
-        // offset: 1
       }
     }).then((res) => {
       console.log(res);
@@ -30,36 +28,65 @@ function App() {
   const handleChange = (e) => {
     e.preventDefault();
     setUserInput(e.target.value);
+
   }
+
+  
+
 
 
   return (
     <div className="App">
+      <div className="main">
       <header>
-        <h1>Workout What?</h1>
+        <h1>Workout...</h1>
+        <div className="what">
+            <MovingText
+              type="swing"
+              duration="1600ms"
+              delay="1s"
+              direction="normal"
+              timing="ease"
+              iteration="infinite"
+              fillMode="none">
+              What?
+            </MovingText>
+          </div>
       </header>
+      
       <form>
-      <label htmlFor="muscle">Choose a muscle group:</label>
 
-        <select 
-          name="muscle" 
-          id="muscle" 
-          onChange={handleChange}
-          >
-            <option value="" disabled>--Please choose an option--</option>
-            <option value="abdominals">Abdominals</option>
-            <option value="biceps">Biceps</option>
-            <option value="calves">Calves</option>
-            <option value="chest">Chest</option>
-            <option value="glutes">Glutes</option>
-            <option value="hamstrings">Hamstrings</option>
-            <option value="quadriceps">Quadriceps</option>
-            
-        </select>
-        {/* <button type="submit">Find me an exercise!</button> */}
-      </form>
-      < Display exercises={exercises}/>
+        <label htmlFor="muscle">Choose a muscle group:</label>
+        
+          <select 
+            name="muscle" 
+            id="muscle" 
+            onChange={handleChange}
+            >
+              <option value="" disabled>--Please choose an option--</option>
+              <option value="abdominals">Abdominals</option>
+              <option value="biceps">Biceps</option>
+              <option value="calves">Calves</option>
+              <option value="chest">Chest</option>
+              <option value="glutes">Glutes</option>
+              <option value="hamstrings">Hamstrings</option>
+              <option value="quadriceps">Quadriceps</option>
+          </select>
+          
+          <div className="buttonDiv">
+            <button type="submit">Find me an exercise!</button>
+          </div>
+        </form>
+      </div>
+
+      <div className="display">
+        < Display exercises={exercises}/>
+      </div>
+
+      <footer>Created at Juno College of Technology 2022</footer>
+
     </div>
+    
   );
 }
 
