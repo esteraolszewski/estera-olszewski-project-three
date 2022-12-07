@@ -9,7 +9,20 @@ function App() {
   const [exercises, setExercises] = useState([]);
   const [userInput, setUserInput] = useState('');
 
-  useEffect( () => {
+  // useEffect( () => {
+    
+  // }, [userInput])
+
+  // controlled input:
+  const handleChange = (e) => {
+    e.preventDefault();
+    setUserInput(e.target.value);
+
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault(); 
+
     axios({
       url: "https://api.api-ninjas.com/v1/exercises?muscle=",
       method: "GET",
@@ -22,17 +35,7 @@ function App() {
       console.log(res);
       setExercises(res.data);
     })
-  }, [userInput])
-
-  // controlled input:
-  const handleChange = (e) => {
-    e.preventDefault();
-    setUserInput(e.target.value);
-
   }
-
-  
-
 
 
   return (
@@ -54,7 +57,7 @@ function App() {
           </div>
       </header>
       
-      <form>
+      <form onSubmit={handleSubmit}>
 
         <label htmlFor="muscle">Choose a muscle group:</label>
         
