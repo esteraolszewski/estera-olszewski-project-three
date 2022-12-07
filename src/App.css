@@ -9,14 +9,14 @@ html { box-sizing: border-box;}
 /* Font Imports */
 @import url('https://fonts.googleapis.com/css2?family=Aleo:wght@300&family=DM+Sans:wght@500&family=League+Spartan:wght@900&family=Raleway:wght@700&family=Secular+One&display=swap');
 
-/* html {
+html {
   height: 100vh;
   background-image: url(https://images.unsplash.com/photo-1557564437-0995702f88fc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  
-} */
+  overflow-x: hidden;
+}
 
 .App {
   text-align: center;
@@ -24,10 +24,6 @@ html { box-sizing: border-box;}
 
 .main {
   height: 100vh;
-  background-image: url(https://images.unsplash.com/photo-1557564437-0995702f88fc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
 }
 
 .wrapper {
@@ -40,10 +36,9 @@ h1 {
   font-family: 'League Spartan', sans-serif;
   font-size: 130px;
   text-transform: uppercase;
-  padding-top: 100px;
+  padding-top: 50px;
   color: white;
   -webkit-text-stroke: 3px black;
-  position: relative;
   margin-right: 12%;
 }
 
@@ -53,9 +48,9 @@ h1 {
   text-transform: uppercase;
   color: rgb(0, 0, 0);
   -webkit-text-stroke: 3px rgb(255, 255, 255);
-  position: absolute;
-  left: 57%;
-  bottom: 55%;
+  position: relative;
+  left: 335px;
+  bottom: 160px;
   transform: rotate(-15deg);
 }
 
@@ -64,6 +59,8 @@ label {
   font-size: 35px;
   color: rgb(0, 0, 0);
   -webkit-text-stroke: 1px rgb(255, 255, 255);
+  position: relative;
+  bottom: 50px;
 }
 
 select {
@@ -78,8 +75,10 @@ select {
   outline: none;
   border-bottom: 1px solid rgb(255, 255, 255);
   width: 20%;
-  margin-top: 70px;
+  /* margin-top: 70px; */
   transition: 0.3s ease-out;
+  position: relative;
+  bottom: 50px;
 }
 
 select:hover {
@@ -130,6 +129,8 @@ button {
   background: transparent;
   border-bottom: 2px solid rgb(255, 255, 255);
   transition: 0.3s ease-out;
+  position: relative;
+  bottom: 50px;
 }
 
 button:hover {
@@ -146,6 +147,72 @@ button:hover {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+  padding: 50px 0 50px 0;
+}
+
+/* MEDIA QUERIES */
+
+@media (max-width: 1040px) {
+  .what {
+    font-size: 80px;
+  }
+}
+
+@media (max-width: 940px) {
+  h1 {
+    font-size: 110px;
+  }
+  .what {
+    font-size: 60px;
+    bottom: 120px;
+  }
+  select {
+    width: 30%;
+  }
+}
+
+@media (max-width: 850px) {
+  h1 {
+    margin-left: 12%;
+  }
+  .what {
+    left: 250px;
+    top: -95px;
+  }
+}
+
+@media (max-width: 710px) {
+  h1 {
+    font-size: 80px;
+    margin-top: 150px;
+  }
+  .what {
+    left: 150px;
+    top: -70px;
+  }
+}
+
+@media (max-width: 515px) {
+  h1 {
+    font-size: 60px;
+    margin-left: 8%;
+  }
+  .what {
+    font-size: 40px;
+  }
+  form {
+    margin-top: 50px;
+  }
+}
+
+@media (max-width: 430px) {
+  h1 {
+    font-size: 50px;
+  }
+  .what {
+    left: 100px;
+    top: -40px;
+  }
 }
 
 

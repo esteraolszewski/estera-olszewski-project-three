@@ -1,6 +1,6 @@
 import './App.css';
 import axios from 'axios';
-import {useEffect, useState} from 'react';
+import {useRef, useState} from 'react';
 import Display from './Display';
 import MovingText from 'react-moving-text';
 
@@ -9,9 +9,14 @@ function App() {
   const [exercises, setExercises] = useState([]);
   const [userInput, setUserInput] = useState('');
 
-  // useEffect( () => {
-    
-  // }, [userInput])
+  const displayArea = useRef(null);
+
+  const scrollDown = (elementRef) => {
+    window.scrollTo({
+      top: elementRef.current.offsetTop,
+      behavior: 'smooth'
+    })
+  }
 
   // controlled input:
   const handleChange = (e) => {
@@ -32,7 +37,6 @@ function App() {
         muscle: userInput,
       }
     }).then((res) => {
-      console.log(res);
       setExercises(res.data);
     })
   }
@@ -77,13 +81,15 @@ function App() {
           </select>
           
           <div className="buttonDiv">
-            <button type="submit">Find me an exercise!</button>
+            <button type="submit" onClick={() => scrollDown(displayArea)}>Find me an exercise!</button>
           </div>
         </form>
       </div>
 
-      <div className="display">
+      <div className="display" ref={displayArea}>     
+        
         < Display exercises={exercises}/>
+
       </div>
 
       <footer>Created at Juno College of Technology 2022</footer>
@@ -94,3 +100,8 @@ function App() {
 }
 
 export default App;
+
+
+
+// References:
+// Scroll to Section - Youtube tutorial by Program with Abu

@@ -24,21 +24,12 @@ function Display({exercises}) {
         (<div className="wrapper">
             <section className="results">
                 <div className="resultsContainer">
-                            <h2>{exerciseName}</h2>
-                            <h3>Difficulty:</h3>
-                            <p>{difficulty}</p>
-                            <h3>Instructions:</h3>
-                            <p>{instructions}</p>
-                        </div>
-                {/* {userInput.length !== 0 */}
-                 {/* {exercises.map(inputObj => {
-                    return (
-                        <div className="resultsContainer">
-                            <h2>Name: {inputObj.name}</h2>
-                            <p>Instructions: {inputObj.instructions}</p>
-                        </div>
-                    )
-                }) */}   
+                    <h2>{exerciseName}</h2>
+                    <h3>Difficulty:</h3>
+                    <p>{difficulty}</p>
+                    <h3>Instructions:</h3>
+                    <p>{instructions}</p>
+                </div>  
             </section>
         </div>)
         :null
