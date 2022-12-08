@@ -8,10 +8,10 @@ function App() {
 
   const [exercises, setExercises] = useState([]);
   const [userInput, setUserInput] = useState('');
-  const [show, setShow] = useState(false);
 
-  const displayArea = useRef(show);
 
+  const displayArea = useRef(null);
+    
 
   const scrollDown = (elementRef) => {
     window.scrollTo({
@@ -84,19 +84,17 @@ function App() {
           </select>
           
           <div className="buttonDiv">
-            <button type="submit" onClick={() => {scrollDown(displayArea); setShow(!show)}}>Find me an exercise!</button>
+            <button type="submit" onClick={() => scrollDown(displayArea)}>Find me an exercise!</button>
           </div>
         </form>
       </div>
 
-      {show ?
       <div className="display" ref={displayArea}>     
       
         < Display exercises={exercises}/>
         
       </div>
-       :null
-    }
+      
       <footer>Created at <a href='https://junocollege.com/'>Juno College of Technology</a> 2022</footer>
 
     </div>
