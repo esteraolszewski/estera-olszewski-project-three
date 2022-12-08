@@ -150,6 +150,19 @@ button:hover {
   padding: 50px 0 50px 0;
 }
 
+footer {
+  color: black;
+  font-family: 'DM Sans', sans-serif;
+}
+
+a:link,
+a:visited,
+a:hover,
+a:active { 
+  text-decoration: none; 
+  color: rgb(109, 109, 109);
+}
+
 /* MEDIA QUERIES */
 
 @media (max-width: 1040px) {
@@ -190,6 +203,9 @@ button:hover {
     left: 150px;
     top: -70px;
   }
+  select {
+    width: 40%;
+  }
 }
 
 @media (max-width: 515px) {
@@ -203,6 +219,9 @@ button:hover {
   form {
     margin-top: 50px;
   }
+  select {
+    width: 50%;
+  }
 }
 
 @media (max-width: 430px) {
@@ -212,6 +231,9 @@ button:hover {
   .what {
     left: 100px;
     top: -40px;
+  }
+  select {
+    width: 60%;
   }
 }
 
